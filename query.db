@@ -1,0 +1,29 @@
+    {
+        "name": "Television Samsung 4K",
+        "description": "television de 55 pulgadas con tecnologia 4K",
+        "price": 1200,
+        "category": "Electronica",
+        "imageUrl": "https://images.samsung.com/is/image/samsung/co-uhd-tu8000-un58tu8000kxzl-frontblack-221500926?$650_519_PNG$"
+    },
+    {
+        "name": "Laptop Dell Inspiron",
+        "description": "laptop de 15 pulgadas con procesador intel core i5",
+        "price": 700,
+        "category": "Electronica",
+        "imageUrl": "https://www.apcomputadores.com/wp-content/uploads/portatil-dell-inspiron-15-3501-nnd17-15-6-core-i3-1115g4-4gb-ram-1tb-hdd1.jpg.webp"
+    },
+    {
+        "name": "Tableta iPad",
+        "description": "tableta de 10 pulgadas con procesador apple A12 Bionic",
+        "price": 500,
+        "category": "Electronica",
+        "imageUrl": "https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCO/19574664_1/w=1500,h=1500,fit=pad"
+    },
+    {
+        "name": "Smartphone Samsung",
+        "description": "smartphone de 6 pulgadas con procesador Exynos 9820",
+        "price": 900,
+        "category": "Electronica",
+        "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/co/2401/gallery/co-galaxy-s24-s928-sm-s928bztultc-thumb-539325481?$264_264_PNG$"
+    },
+    
