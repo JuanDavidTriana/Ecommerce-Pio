@@ -46,7 +46,7 @@ const Login = () => {
                                     Sign up
                                 </a>
                             </p>
-                        </form>
+                        </form>         
                     </div>
                 </div>
             </div>
