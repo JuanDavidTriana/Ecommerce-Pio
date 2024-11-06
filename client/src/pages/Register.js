@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
+import useAuthRedirect from "../hooks/useAuthRedirect";
 
 const Register = () => {
+    useAuthRedirect(); // llamar a la función de redireccionamiento antes de renderizar el componente
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const navigate = useNavigate();
