@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
     return (
 
-
-
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-                <img class="p-8 rounded-t-lg" src={product.imageUrl} alt="product image" />
+                <img class="p-8 rounded-t-lg w-64 h-64 object-cover object-center" src={product.imageUrl} alt="product image" />
             </a>
             <div class="px-5 pb-5">
                 <a href="#">
