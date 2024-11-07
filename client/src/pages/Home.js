@@ -20,13 +20,12 @@ const Home = () => {
 
     return (
 
-        <section className="bg-gray-50 dark:bg-gray-900 py-16">
-            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-6 gap-y-8 px-6">
+        <section className="bg-gray-50 dark:bg-gray-900 py-16 min-h-screen flex items-center">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8 px-6">
                 {products.map((product) => (
                     <ProductCard key={product._id} product={product} className="shadow-md rounded-md" />
                 ))}
             </div>
-
         </section>
     );
 };

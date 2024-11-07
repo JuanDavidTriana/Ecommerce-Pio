@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
                     <span class="text-3xl font-bold text-primary dark:text-white">
                         ${product.price} COL
                         </span>
-                    <a href="#" class="text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Add to cart</a>
+                    <Link to={`/product/${product.id}`} className="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</Link>
                 </div>
             </div>
         </div>

@@ -21,3 +21,13 @@ exports.createProduct = async (req, res) => {
         res.status(500).json({ error: 'Error al crear el producto' });
     }
 }
+
+// Eliminar un producto(admin)
+exports.deleteProduct = async (req, res) => {
+    try {
+        await Product.findByIdAndDelete(req.params.id);
+        res.sendStatus(204);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar el producto' });
+    }
+}
