@@ -1,78 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import api from '../api/api';
 
 const Admin = () => {
-    const [token, setToken] = useState(''); // Estado para mostrar el token
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(0);
-    const [category, setCategory] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-    const navigate = useNavigate();
+    const [products, setProducts] = React.useState([]);
 
-    // Obtener el token cuando se carga el componente
     useEffect(() => {
-        const storedToken = localStorage.getItem('token');
-        setToken(storedToken);
+        const fetchProducts = async () => {
+            try {
+                const response = await api.get('/products');
+                setProducts(response.data);
+            } catch (error) {
+                console.error('Error al obtener los productos:', error);
+            }
+        };
+
+        fetchProducts();
     }, []);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await api.post('/products', {
-                name,
-                description,
-                price,
-                category,
-                imageUrl
-            });
-            console.log(response.data);
-            navigate('/');
-        } catch (error) {
-            if (error.response) {
-                console.error('Detalles del error:', error.response.data);
-                alert(`Error: ${error.response.data.message || 'Hubo un problema al crear el producto'}`);
-            } else {
-                console.error('Error al crear el producto:', error.message);
-                alert('Hubo un problema al crear el producto');
-            }
-        }
-    }
-
     return (
-        <div>
-            <h1>Admin</h1>
-            {token && <p>Token del usuario: {token}</p>} {/* Mostrar token si existe */}
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Nombre:
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Descripción:
-                    <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Precio:
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Categoría:
-                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Imagen:
-                    <input type="text" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
-                </label>
-                <br />
-                <button type="submit">Crear</button>
-            </form>
-        </div>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        description
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        price
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        imageUrl
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Edit
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Apple MacBook Pro 17"
+                    </th>
+                    <td class="px-6 py-4">
+                        Silver
+                    </td>
+                    <td class="px-6 py-4">
+                        Laptop
+                    </td>
+                    <td class="px-6 py-4">
+                        $2999
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+    </div>
     );
 }
 

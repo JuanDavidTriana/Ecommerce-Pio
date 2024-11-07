@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 //Styles
 import './App.css';
 import './index.css';
+import ThemeToggleBubble from './components/ThemeToggleBubble';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
+      <ThemeToggleBubble />
     </Router>
   );
 }
