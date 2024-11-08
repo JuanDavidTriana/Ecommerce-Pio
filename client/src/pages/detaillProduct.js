@@ -30,7 +30,14 @@ const DetaillProduct = () => {
     };
 
     return (
-        <h2>{description}</h2>
+        <div>
+            <h2>Detalles del Producto</h2>
+            <p>Nombre: {name}</p>
+            <p>Descripción: {description}</p>
+            <p>Precio: {price}</p>
+            <p>Categoría: {category}</p>
+            <p>URL de la imagen: {imageUrl}</p>
+        </div>
     )
 };  
 
