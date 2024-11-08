@@ -57,7 +57,7 @@ const Admin = () => {
                                     <img src={product.imageUrl} alt={product.name} className="w-10 h-10 object-cover rounded-full" />
                                 </td>
                                 <td className="px-6 py-4">
-                                    <a href={`/edit/${product._id}`} className="font-medium text-primary-500 hover:underline">Edit</a>
+                                    <a href={`/admin/edit/${product._id}`} className="font-medium text-primary-500 hover:underline">Edit</a>
                                 </td>
                                 <td className="px-6 py-4">
                                     <a onClick={() => handleDelete(product._id)} className="font-medium text-red-500 hover:underline">Delete</a>
