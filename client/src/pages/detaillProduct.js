@@ -30,14 +30,17 @@ const DetaillProduct = () => {
     };
 
     return (
-        <div>
-            <h2>Detalles del Producto</h2>
-            <p>Nombre: {name}</p>
-            <p>Descripción: {description}</p>
-            <p>Precio: {price}</p>
-            <p>Categoría: {category}</p>
-            <p>URL de la imagen: {imageUrl}</p>
-        </div>
+        <section className="bg-gray-50 dark:bg-gray-900 py-16 min-h-screen flex items-center">
+
+            <div>
+                <h2>Detalles del Producto</h2>
+                <p>Nombre: {name}</p>
+                <p>Descripción: {description}</p>
+                <p>Precio: {price}</p>
+                <p>Categoría: {category}</p>
+                <p>URL de la imagen: {imageUrl}</p>
+            </div>
+        </section>
     )
 };  
 
