@@ -16,6 +16,7 @@ import './App.css';
 import './index.css';
 import ThemeToggleBubble from './components/ThemeToggleBubble';
 import AdminCreate from './pages/adminCreate';
+import AdminEdit from './pages/adminEdit';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path ="/register" element={<Register />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/Create" element={<AdminCreate />} />
+        <Route path="/admin/edit/:id" element={<AdminEdit />} />
       </Routes>
       <Footer />
       <ThemeToggleBubble />
