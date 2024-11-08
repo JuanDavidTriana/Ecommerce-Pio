@@ -10,18 +10,20 @@ const AdminEdit = () => {
     const [category, setCategory] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const navigate = useNavigate();
+    const { id } = useParams();
 
     // Obtener el token cuando se carga el componente
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         setToken(storedToken);
+        handleGetProduct();
     }, []);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/products', {
+            const response = await api.put(`/products/${id}`, {
                 name,
                 description,
                 price,
@@ -33,15 +35,15 @@ const AdminEdit = () => {
         } catch (error) {
             if (error.response) {
                 console.error('Detalles del error:', error.response.data);
-                alert(`Error: ${error.response.data.message || 'Hubo un problema al crear el producto'}`);
+                alert(`Error: ${error.response.data.message || 'Hubo un problema al actualizar el producto'}`);
             } else {
-                console.error('Error al crear el producto:', error.message);
-                alert('Hubo un problema al crear el producto');
+                console.error('Error al actualizar el producto:', error.message);
+                alert('Hubo un problema al actualizar el producto');
             }
         }
     }
 
-    const { id } = useParams();
+   
 
     const handleGetProduct = async () => {
         try {
@@ -93,7 +95,7 @@ const AdminEdit = () => {
                     <input type="text" id="imageUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} required />
                 </div>
                 <button type="submit" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-700 dark:hover:bg-primary-800 dark:focus:ring-primary-900">
-                    Crear
+                actualizar
                 </button>
             </form>
         </div>
